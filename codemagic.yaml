@@ -4,18 +4,18 @@ workflows:
     max_build_duration: 30
     instance_type: mac_mini_m1
     scripts:
-      - name: Set Android SDK
+      - name: Instalar Gradle y preparar entorno
         script: |
           cd mYappo
+          # Si no existe gradlew, creamos un empaquetador básico
+          if [ ! -f "gradlew" ]; then
+            gradle wrapper
+          fi
+          chmod +x gradlew
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
       - name: Build Android APK
         script: |
           cd mYappo
-          if [ -f "./gradlew" ]; then
-            chmod +x gradlew
-            ./gradlew assembleDebug
-          else
-            gradle assembleDebug
-          fi
+          ./gradlew assembleDebug --stacktrace
     artifacts:
       - mYappo/app/build/outputs/apk/**/*.apk
