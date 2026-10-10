@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LinguaKey</string>
+    <string name="ime_name">Teclado LinguaKey</string>
+    <string name="subtype_es">Español (ES)</string>
+    <string name="subtype_en">English (US)</string>
+    <string name="translate_button">Traducir</string>
+    <string name="translating">Traduciendo con IA…</string>
+    <string name="error_empty">Escribe algo antes de traducir.</string>
+    <string name="zero_cost_badge">Modo 0$ Activo</string>
+</resources>
